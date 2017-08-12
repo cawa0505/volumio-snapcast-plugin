@@ -1,3 +1,4 @@
+#!/bin/bash
 ## SnapCast installation script
 echo "Installing SnapCast and its dependencies..."
 INSTALLING="/home/volumio/snapcast-plugin.installing"
@@ -7,7 +8,7 @@ if [ ! -f $INSTALLING ]; then
 	touch $INSTALLING
 
 	# Download latest SnapCast packages
-	mkdir /home/volumio/snapcast
+	mkdir -p /home/volumio/snapcast
 	wget $(curl -s https://api.github.com/repos/badaix/snapcast/releases/latest | grep 'armhf' | cut -d\" -f4) -P /home/volumio/snapcast
 
 	# Backup old snap* installations
